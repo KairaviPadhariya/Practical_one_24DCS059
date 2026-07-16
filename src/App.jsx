@@ -1,19 +1,20 @@
-import Header from "./components/Header.jsx";
-import About from "./components/About.jsx";
-import Skills from "./components/Skills.jsx";
+import { Routes, Route } from "react-router-dom";
+import NavBar from "./components/NavBar.jsx";
 import Footer from "./components/Footer.jsx";
+import Home from "./pages/Home.jsx";
+import Projects from "./pages/Projects.jsx";
+import Contact from "./pages/Contact.jsx";
 import "./App.css";
 
 function App() {
-  const skillList = ["C++", "Docker", "HTML & CSS", "Git & GitHub", "AWS", "GCP", "Jenkins", "MongoDB", "Linux"];
-
   return (
     <div className="app">
-      <Header name="Kairavi Padhariya" />
-      <main className="content">
-        <About />
-        <Skills skillList={skillList} />
-      </main>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
       <Footer />
     </div>
   );
